@@ -1,0 +1,82 @@
+[gd_scene load_steps=7 format=4 uid="uid://c3e8f6bfdiawr"]
+
+[ext_resource type="PackedScene" uid="uid://dmjf1fjaukhdm" path="res://Areas/Room Base/room.tscn" id="1_2sywn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2sywn"]
+size = Vector2(64, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m2nst"]
+size = Vector2(19, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ptqfr"]
+size = Vector2(10.5, 48)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lwv7n"]
+radius = 8.0
+height = 32.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k1rkm"]
+size = Vector2(2.5, 12)
+
+[node name="Bedroom" instance=ExtResource("1_2sywn")]
+
+[node name="Camera2D" type="Camera2D" parent="." index="0"]
+position = Vector2(0, -10)
+zoom = Vector2(6, 6)
+
+[node name="FloorAndWalls" parent="Floor/TileMap" index="0"]
+tile_map_data = PackedByteArray("AAAAAP//AAABAAYAAAD/////AAABAAYAAAD//wAAAAABAAYAAAAAAAAAAAABAAYAAAD+//7/AAABAAYAAAD///7/AAABAAYAAAAAAP7/AAABAAYAAAABAP7/AAABAAYAAAABAP//AAABAAYAAAABAAAAAAABAAYAAAABAAEAAAABAAYAAAAAAAEAAAABAAYAAAD//wEAAAABAAYAAAD+/wEAAAABAAYAAAD+/wAAAAABAAYAAAD+////AAABAAYAAAD9/wIAAAABAAYAAAD+/wIAAAABAAYAAAD//wIAAAABAAYAAAAAAAIAAAABAAYAAAABAAIAAAABAAYAAAACAAIAAAABAAYAAAD9//3/AAABAAYAAAD+//3/AAABAAYAAAD///3/AAABAAYAAAAAAP3/AAABAAYAAAABAP3/AAABAAYAAAACAP3/AAABAAYAAAACAP7/AAABAAYAAAACAP//AAABAAYAAAACAAAAAAABAAYAAAACAAEAAAABAAYAAAD9/wEAAAABAAYAAAD9/wAAAAABAAYAAAD9////AAABAAYAAAD9//7/AAABAAYAAAADAAIAAAABAAYAAAADAAEAAAABAAYAAAADAAAAAAABAAYAAAADAP//AAABAAYAAAADAP7/AAABAAYAAAADAP3/AAABAAYAAAD8/wIAAAABAAYAAAD8/wEAAAABAAYAAAD8/wAAAAABAAYAAAD8////AAABAAYAAAD8//7/AAABAAYAAAD8//3/AAABAAYAAAABAAMAAAABAAYAAAD8/wMAAAABAAcAAAD9/wMAAAABAAcAAAD+/wMAAAABAAcAAAD//wMAAAABAAcAAAAAAAMAAAABAAcAAAABAAQAAAABAAcAAAACAAMAAAABAAcAAAADAAMAAAABAAcAAAAEAAMAAAABAAcAAAD7/wMAAAABAAcAAAAEAAEAAAADAAQAAAAEAAIAAAADAAUAAAD7/wEAAAADAAQAAAD7/wIAAAADAAUAAAADAPv/AAACAAQAAAADAPz/AAACAAUAAAD8//v/AAAAAAQAAAD8//z/AAAAAAUAAAD9//v/AAABAAQAAAD9//z/AAABAAUAAAD+//v/AAABAAQAAAD+//z/AAABAAUAAAD///v/AAABAAQAAAD///z/AAABAAUAAAAAAPv/AAABAAQAAAAAAPz/AAABAAUAAAABAPv/AAABAAQAAAABAPz/AAABAAUAAAACAPv/AAABAAQAAAACAPz/AAABAAUAAAAEAAAAAAADAAMAAAD7/wAAAAADAAMAAAAEAP7/AAADAAIAAAAEAP//AAADAAIAAAAEAP3/AAADAAIAAAAEAPz/AAADAAIAAAAEAPv/AAADAAIAAAD7////AAADAAIAAAD7//7/AAADAAIAAAD7//3/AAADAAIAAAD7//z/AAADAAIAAAD7//v/AAADAAIAAAAEAPr/AAACAAEAAAD7//r/AAAAAAEAAAD8//r/AAABAAAAAAD9//r/AAABAAAAAAD+//r/AAABAAAAAAD///r/AAABAAAAAAAAAPr/AAABAAAAAAABAPr/AAABAAAAAAACAPr/AAABAAAAAAADAPr/AAABAAAAAAA=")
+
+[node name="InteriorItems" parent="Floor/TileMap" index="1"]
+tile_map_data = PackedByteArray("AAADAAIAAAAGAAEAAAADAAEAAAAGAAAAAAACAAIAAAACAAUAAAACAAEAAAACAAUAAAD8//3/AAANAAMAAAD9//3/AAAKAAIAAAACAP3/AAAHABEAAAABAP3/AAAFABEAAAADAP3/AAAGABEAAAAAAP3/AAADABEAAAD8/wIAAAAMAA8AAAD8/wEAAAAMAA4AAAD8/wAAAAAMAA4AAAD+//v/AAATAA4AAAACAPv/AAASAA0AAAAAAPv/AAASAAwAAAA=")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Floor/Collisions" index="0"]
+collision_layer = 2
+collision_mask = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor/Collisions/StaticBody2D" index="0"]
+position = Vector2(32, -40)
+shape = SubResource("RectangleShape2D_2sywn")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="Floor/Collisions" index="1"]
+collision_layer = 2
+collision_mask = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor/Collisions/StaticBody2D2" index="0"]
+position = Vector2(-54.5, -40)
+shape = SubResource("RectangleShape2D_m2nst")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="Floor/Collisions" index="2"]
+collision_layer = 2
+collision_mask = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor/Collisions/StaticBody2D3" index="0"]
+position = Vector2(-59.25, 24)
+shape = SubResource("RectangleShape2D_ptqfr")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="Floor/Collisions" index="3"]
+collision_layer = 2
+collision_mask = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor/Collisions/StaticBody2D4" index="0"]
+position = Vector2(56, 32)
+shape = SubResource("CapsuleShape2D_lwv7n")
+
+[node name="StaticBody2D5" type="StaticBody2D" parent="Floor/Collisions" index="4"]
+collision_layer = 2
+collision_mask = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor/Collisions/StaticBody2D5" index="0"]
+position = Vector2(36.75, 26)
+shape = SubResource("RectangleShape2D_k1rkm")
+
+[node name="StaticBody2D6" type="StaticBody2D" parent="Floor/Collisions" index="5"]
+collision_layer = 2
+collision_mask = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor/Collisions/StaticBody2D6" index="0"]
+position = Vector2(37, 42)
+shape = SubResource("RectangleShape2D_k1rkm")
+
+[node name="Player" parent="." index="2"]
+position = Vector2(-54, -20)
