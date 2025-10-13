@@ -16,6 +16,8 @@ func _process(_delta: float) -> void:
 	var direction_vector: Vector2 = input_vector.normalized()
 	self.velocity = direction_vector * SPEED * speed_modifier
 	self.move_and_slide()
+	
+	$"Rotation Point".look_at(self.get_global_mouse_position())
 
 func set_animation_mode(direction: Vector2) -> void:
 	$AnimationTree.set("parameters/Idle/blend_position", direction)
