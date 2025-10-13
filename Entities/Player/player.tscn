@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://irbrs87p4ni5" path="res://Entities/Player/assets/axe.png" id="4_5c2io"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mv1ah"]
-size = Vector2(4, 13)
+size = Vector2(4, 10)
 
 [sub_resource type="Animation" id="Animation_lu8i8"]
 length = 0.001
@@ -260,7 +260,7 @@ hframes = 3
 vframes = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 0.5)
+position = Vector2(0, 2)
 shape = SubResource("RectangleShape2D_mv1ah")
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
