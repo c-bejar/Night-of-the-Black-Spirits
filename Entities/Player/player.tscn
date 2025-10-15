@@ -1,9 +1,10 @@
-[gd_scene load_steps=31 format=3 uid="uid://y8s0qmkthw2n"]
+[gd_scene load_steps=32 format=3 uid="uid://y8s0qmkthw2n"]
 
 [ext_resource type="Script" uid="uid://ba5lk2jtb8hjh" path="res://Entities/Player/player.gd" id="1_3uyv8"]
 [ext_resource type="Texture2D" uid="uid://bhjdhmitdap4w" path="res://Entities/Player/assets/player.png" id="1_mv1ah"]
 [ext_resource type="Shader" uid="uid://7hk4efd43mx" path="res://Entities/Player/axe.gdshader" id="3_tekja"]
 [ext_resource type="Texture2D" uid="uid://irbrs87p4ni5" path="res://Entities/Player/assets/axe.png" id="4_5c2io"]
+[ext_resource type="Texture2D" uid="uid://clhi05bnfvhiq" path="res://Resources/point_light.tres" id="5_5c2io"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mv1ah"]
 size = Vector2(4, 10)
@@ -298,6 +299,11 @@ collision_mask = 8
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Rotation Point/TVDetection"]
 position = Vector2(0, -4)
 polygon = PackedVector2Array(17, -2, 14, -12, 24, -2, 28, 6, 25, 14, 14, 24, 17, 14, 19, 6)
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+energy = 0.25
+texture = ExtResource("5_5c2io")
+texture_scale = 0.5
 
 [connection signal="body_entered" from="Rotation Point/TVDetection" to="." method="_on_tv_detection_body_entered"]
 [connection signal="body_exited" from="Rotation Point/TVDetection" to="." method="_on_tv_detection_body_exited"]
