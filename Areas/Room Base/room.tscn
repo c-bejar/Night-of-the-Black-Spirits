@@ -565,4 +565,6 @@ tile_set = SubResource("TileSet_00gvw")
 
 [node name="Collisions" type="Node2D" parent="Floor"]
 
+[node name="SpawnPoints" type="Node2D" parent="."]
+
 [node name="Player" parent="." instance=ExtResource("3_ury3i")]
