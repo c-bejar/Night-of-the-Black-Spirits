@@ -243,7 +243,7 @@ states/Idle/position = Vector2(380.59998, 107.48)
 states/Move/node = SubResource("AnimationNodeBlendSpace2D_x1y6q")
 states/Move/position = Vector2(367, 9.400002)
 transitions = ["Move", "Idle", SubResource("AnimationNodeStateMachineTransition_lu8i8"), "Idle", "Move", SubResource("AnimationNodeStateMachineTransition_tekja"), "Start", "Idle", SubResource("AnimationNodeStateMachineTransition_3uyv8")]
-graph_offset = Vector2(34, -69)
+graph_offset = Vector2(81, -44)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4wf4l"]
 shader = ExtResource("3_tekja")
@@ -279,9 +279,25 @@ zoom = Vector2(5, 5)
 position = Vector2(0, 1)
 scale = Vector2(-1, 1)
 
-[node name="Sprite2D2" type="Sprite2D" parent="Rotation Point"]
+[node name="AnimationRotation" type="Node2D" parent="Rotation Point"]
+
+[node name="Sprite2D2" type="Sprite2D" parent="Rotation Point/AnimationRotation"]
 material = SubResource("ShaderMaterial_4wf4l")
 position = Vector2(-19, 7)
 rotation = -2.6179938
 scale = Vector2(0.02, 0.02)
 texture = ExtResource("4_5c2io")
+
+[node name="TVDetection" type="Area2D" parent="Rotation Point"]
+position = Vector2(0, -1)
+rotation = 3.1415927
+scale = Vector2(1, -1)
+collision_layer = 16
+collision_mask = 8
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Rotation Point/TVDetection"]
+position = Vector2(0, -4)
+polygon = PackedVector2Array(17, -2, 14, -12, 24, -2, 28, 6, 25, 14, 14, 24, 17, 14, 19, 6)
+
+[connection signal="body_entered" from="Rotation Point/TVDetection" to="." method="_on_tv_detection_body_entered"]
+[connection signal="body_exited" from="Rotation Point/TVDetection" to="." method="_on_tv_detection_body_exited"]
