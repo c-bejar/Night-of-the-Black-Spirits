@@ -480,3 +480,7 @@ position = Vector2(218, 166)
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="." index="3"]
 color = Color(0.8175213, 0.8175213, 0.81752115, 1)
 blend_mode = 1
+
+[connection signal="axe_attack" from="Player" to="." method="_on_player_axe_attack"]
+[connection signal="tv_entered" from="Player" to="." method="_on_player_tv_entered"]
+[connection signal="tv_exited" from="Player" to="." method="_on_player_tv_exited"]
