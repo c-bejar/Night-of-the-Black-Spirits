@@ -111,7 +111,6 @@ tile_map_data = PackedByteArray("AAADAAIAAAAGAAEAAAADAAEAAAAGAAAAAAACAAIAAAACAAU
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Floor/Collisions" index="0"]
 collision_layer = 2
-collision_mask = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floor/Collisions/StaticBody2D" index="0"]
 position = Vector2(32, -40)
@@ -119,7 +118,6 @@ shape = SubResource("RectangleShape2D_2sywn")
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="Floor/Collisions" index="1"]
 collision_layer = 2
-collision_mask = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floor/Collisions/StaticBody2D2" index="0"]
 position = Vector2(-54.5, -40)
@@ -127,7 +125,6 @@ shape = SubResource("RectangleShape2D_m2nst")
 
 [node name="StaticBody2D3" type="StaticBody2D" parent="Floor/Collisions" index="2"]
 collision_layer = 2
-collision_mask = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floor/Collisions/StaticBody2D3" index="0"]
 position = Vector2(-59.25, 24)
@@ -135,7 +132,6 @@ shape = SubResource("RectangleShape2D_ptqfr")
 
 [node name="StaticBody2D4" type="StaticBody2D" parent="Floor/Collisions" index="3"]
 collision_layer = 2
-collision_mask = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floor/Collisions/StaticBody2D4" index="0"]
 position = Vector2(56, 32)
@@ -143,7 +139,6 @@ shape = SubResource("CapsuleShape2D_lwv7n")
 
 [node name="StaticBody2D5" type="StaticBody2D" parent="Floor/Collisions" index="4"]
 collision_layer = 2
-collision_mask = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floor/Collisions/StaticBody2D5" index="0"]
 position = Vector2(36.75, 26)
@@ -151,7 +146,6 @@ shape = SubResource("RectangleShape2D_k1rkm")
 
 [node name="StaticBody2D6" type="StaticBody2D" parent="Floor/Collisions" index="5"]
 collision_layer = 2
-collision_mask = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floor/Collisions/StaticBody2D6" index="0"]
 position = Vector2(37, 42)
@@ -159,7 +153,6 @@ shape = SubResource("RectangleShape2D_k1rkm")
 
 [node name="StaticBody2D7" type="StaticBody2D" parent="Floor/Collisions" index="6"]
 collision_layer = 2
-collision_mask = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floor/Collisions/StaticBody2D7" index="0"]
 position = Vector2(123, 24)
@@ -167,7 +160,6 @@ shape = SubResource("RectangleShape2D_omrnp")
 
 [node name="StaticBody2D8" type="StaticBody2D" parent="Floor/Collisions" index="7"]
 collision_layer = 2
-collision_mask = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floor/Collisions/StaticBody2D8" index="0"]
 position = Vector2(104, 6)
@@ -175,7 +167,6 @@ shape = SubResource("RectangleShape2D_qlil4")
 
 [node name="StaticBody2D9" type="StaticBody2D" parent="Floor/Collisions" index="8"]
 collision_layer = 2
-collision_mask = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floor/Collisions/StaticBody2D9" index="0"]
 position = Vector2(24, 150.5)
@@ -183,7 +174,6 @@ shape = SubResource("RectangleShape2D_3rt5c")
 
 [node name="StaticBody2D10" type="StaticBody2D" parent="Floor/Collisions" index="9"]
 collision_layer = 2
-collision_mask = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floor/Collisions/StaticBody2D10" index="0"]
 position = Vector2(176, -8)
@@ -191,7 +181,6 @@ shape = SubResource("RectangleShape2D_nu5ku")
 
 [node name="StaticBody2D11" type="StaticBody2D" parent="Floor/Collisions" index="10"]
 collision_layer = 2
-collision_mask = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floor/Collisions/StaticBody2D11" index="0"]
 position = Vector2(256.5, -8)
@@ -199,7 +188,6 @@ shape = SubResource("RectangleShape2D_srjy5")
 
 [node name="StaticBody2D12" type="StaticBody2D" parent="Floor/Collisions" index="11"]
 collision_layer = 2
-collision_mask = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floor/Collisions/StaticBody2D12" index="0"]
 position = Vector2(320, -120)
@@ -207,7 +195,6 @@ shape = SubResource("RectangleShape2D_syyw3")
 
 [node name="StaticBody2D13" type="StaticBody2D" parent="Floor/Collisions" index="12"]
 collision_layer = 2
-collision_mask = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floor/Collisions/StaticBody2D13" index="0"]
 position = Vector2(308.5, -72)
@@ -215,7 +202,6 @@ shape = SubResource("RectangleShape2D_tqv3g")
 
 [node name="StaticBody2D14" type="StaticBody2D" parent="Floor/Collisions" index="13"]
 collision_layer = 2
-collision_mask = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floor/Collisions/StaticBody2D14" index="0"]
 position = Vector2(360, -121)
@@ -223,7 +209,6 @@ shape = SubResource("CircleShape2D_6f1gl")
 
 [node name="StaticBody2D15" type="StaticBody2D" parent="Floor/Collisions" index="14"]
 collision_layer = 2
-collision_mask = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floor/Collisions/StaticBody2D15" index="0"]
 position = Vector2(104, -106)
@@ -231,7 +216,6 @@ shape = SubResource("CapsuleShape2D_2y7e3")
 
 [node name="StaticBody2D16" type="StaticBody2D" parent="Floor/Collisions" index="15"]
 collision_layer = 2
-collision_mask = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floor/Collisions/StaticBody2D16" index="0"]
 position = Vector2(88, 167)
@@ -239,7 +223,6 @@ shape = SubResource("CircleShape2D_8nba8")
 
 [node name="StaticBody2D17" type="StaticBody2D" parent="Floor/Collisions" index="16"]
 collision_layer = 2
-collision_mask = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floor/Collisions/StaticBody2D17" index="0"]
 position = Vector2(352, 167)
@@ -248,7 +231,6 @@ shape = SubResource("CapsuleShape2D_qner0")
 
 [node name="StaticBody2D18" type="StaticBody2D" parent="Floor/Collisions" index="17"]
 collision_layer = 2
-collision_mask = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floor/Collisions/StaticBody2D18" index="0"]
 position = Vector2(324.75, 169.75)
@@ -256,7 +238,6 @@ shape = SubResource("RectangleShape2D_ki8lv")
 
 [node name="StaticBody2D19" type="StaticBody2D" parent="Floor/Collisions" index="18"]
 collision_layer = 2
-collision_mask = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floor/Collisions/StaticBody2D19" index="0"]
 position = Vector2(379, 169.5)
@@ -264,7 +245,6 @@ shape = SubResource("RectangleShape2D_mkpi2")
 
 [node name="StaticBody2D20" type="StaticBody2D" parent="Floor/Collisions" index="19"]
 collision_layer = 2
-collision_mask = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floor/Collisions/StaticBody2D20" index="0"]
 position = Vector2(432, 136)
@@ -272,7 +252,6 @@ shape = SubResource("RectangleShape2D_6f1gl")
 
 [node name="StaticBody2D21" type="StaticBody2D" parent="Floor/Collisions" index="20"]
 collision_layer = 2
-collision_mask = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floor/Collisions/StaticBody2D21" index="0"]
 position = Vector2(472, 151)
@@ -280,14 +259,12 @@ shape = SubResource("CapsuleShape2D_omrnp")
 
 [node name="StaticBody2D22" type="StaticBody2D" parent="Floor/Collisions" index="21"]
 collision_layer = 2
-collision_mask = 5
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Floor/Collisions/StaticBody2D22" index="0"]
 polygon = PackedVector2Array(432, 0, 432, 16, 518, 16, 518, 80, 528, 80, 528, 0)
 
 [node name="StaticBody2D23" type="StaticBody2D" parent="Floor/Collisions" index="22"]
 collision_layer = 2
-collision_mask = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floor/Collisions/StaticBody2D23" index="0"]
 position = Vector2(464, 71)
@@ -296,7 +273,6 @@ shape = SubResource("CapsuleShape2D_qlil4")
 
 [node name="StaticBody2D24" type="StaticBody2D" parent="Floor/Collisions" index="23"]
 collision_layer = 2
-collision_mask = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floor/Collisions/StaticBody2D24" index="0"]
 position = Vector2(437.5, 73.5)
@@ -304,7 +280,6 @@ shape = SubResource("RectangleShape2D_2y7e3")
 
 [node name="StaticBody2D25" type="StaticBody2D" parent="Floor/Collisions" index="24"]
 collision_layer = 2
-collision_mask = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floor/Collisions/StaticBody2D25" index="0"]
 position = Vector2(491, 74)
@@ -312,7 +287,6 @@ shape = SubResource("RectangleShape2D_2y7e3")
 
 [node name="StaticBody2D26" type="StaticBody2D" parent="Floor/Collisions" index="25"]
 collision_layer = 2
-collision_mask = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floor/Collisions/StaticBody2D26" index="0"]
 position = Vector2(456, 52)
@@ -320,7 +294,6 @@ shape = SubResource("RectangleShape2D_8nba8")
 
 [node name="StaticBody2D27" type="StaticBody2D" parent="Floor/Collisions" index="26"]
 collision_layer = 2
-collision_mask = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floor/Collisions/StaticBody2D27" index="0"]
 position = Vector2(472, 52)
@@ -328,14 +301,12 @@ shape = SubResource("RectangleShape2D_8nba8")
 
 [node name="StaticBody2D28" type="StaticBody2D" parent="Floor/Collisions" index="27"]
 collision_layer = 2
-collision_mask = 5
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Floor/Collisions/StaticBody2D28" index="0"]
 polygon = PackedVector2Array(304, 96, 314, 96, 314, 16, 320, 16, 320, 0, 304, 0)
 
 [node name="StaticBody2D29" type="StaticBody2D" parent="Floor/Collisions" index="28"]
 collision_layer = 2
-collision_mask = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floor/Collisions/StaticBody2D29" index="0"]
 position = Vector2(408, 7)
@@ -343,7 +314,6 @@ shape = SubResource("CircleShape2D_omrnp")
 
 [node name="StaticBody2D30" type="StaticBody2D" parent="Floor/Collisions" index="29"]
 collision_layer = 2
-collision_mask = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floor/Collisions/StaticBody2D30" index="0"]
 position = Vector2(280, -121)
@@ -351,7 +321,6 @@ shape = SubResource("CircleShape2D_omrnp")
 
 [node name="StaticBody2D31" type="StaticBody2D" parent="Floor/Collisions" index="30"]
 collision_layer = 2
-collision_mask = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floor/Collisions/StaticBody2D31" index="0"]
 position = Vector2(168, -121)
@@ -359,7 +328,6 @@ shape = SubResource("CircleShape2D_omrnp")
 
 [node name="StaticBody2D32" type="StaticBody2D" parent="Floor/Collisions" index="31"]
 collision_layer = 2
-collision_mask = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floor/Collisions/StaticBody2D32" index="0"]
 position = Vector2(359, -56)
@@ -367,7 +335,6 @@ shape = SubResource("RectangleShape2D_qner0")
 
 [node name="StaticBody2D33" type="StaticBody2D" parent="Floor/Collisions" index="32"]
 collision_layer = 2
-collision_mask = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floor/Collisions/StaticBody2D33" index="0"]
 position = Vector2(-72, 79)
@@ -375,7 +342,6 @@ shape = SubResource("CapsuleShape2D_3rt5c")
 
 [node name="StaticBody2D34" type="StaticBody2D" parent="Floor/Collisions" index="33"]
 collision_layer = 2
-collision_mask = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floor/Collisions/StaticBody2D34" index="0"]
 position = Vector2(145, 140)
@@ -383,7 +349,6 @@ shape = SubResource("RectangleShape2D_b6qvp")
 
 [node name="StaticBody2D35" type="StaticBody2D" parent="Floor/Collisions" index="34"]
 collision_layer = 2
-collision_mask = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floor/Collisions/StaticBody2D35" index="0"]
 position = Vector2(286, 140)
@@ -391,7 +356,6 @@ shape = SubResource("RectangleShape2D_b6qvp")
 
 [node name="StaticBody2D36" type="StaticBody2D" parent="Floor/Collisions" index="35"]
 collision_layer = 2
-collision_mask = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floor/Collisions/StaticBody2D36" index="0"]
 position = Vector2(145.25, 48)
@@ -399,7 +363,6 @@ shape = SubResource("RectangleShape2D_g527n")
 
 [node name="StaticBody2D37" type="StaticBody2D" parent="Floor/Collisions" index="36"]
 collision_layer = 2
-collision_mask = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floor/Collisions/StaticBody2D37" index="0"]
 position = Vector2(287, 48)
@@ -407,7 +370,6 @@ shape = SubResource("RectangleShape2D_g527n")
 
 [node name="StaticBody2D38" type="StaticBody2D" parent="Floor/Collisions" index="37"]
 collision_layer = 2
-collision_mask = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floor/Collisions/StaticBody2D38" index="0"]
 position = Vector2(308.5, 152)
@@ -415,7 +377,6 @@ shape = SubResource("RectangleShape2D_1ygih")
 
 [node name="StaticBody2D39" type="StaticBody2D" parent="Floor/Collisions" index="38"]
 collision_layer = 2
-collision_mask = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floor/Collisions/StaticBody2D39" index="0"]
 position = Vector2(-8, 119)
@@ -423,7 +384,6 @@ shape = SubResource("CircleShape2D_qlil4")
 
 [node name="StaticBody2D40" type="StaticBody2D" parent="Floor/Collisions" index="39"]
 collision_layer = 2
-collision_mask = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floor/Collisions/StaticBody2D40" index="0"]
 position = Vector2(56, 119)
@@ -431,7 +391,6 @@ shape = SubResource("CircleShape2D_qlil4")
 
 [node name="StaticBody2D41" type="StaticBody2D" parent="Floor/Collisions" index="40"]
 collision_layer = 2
-collision_mask = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floor/Collisions/StaticBody2D41" index="0"]
 position = Vector2(88, 119)
