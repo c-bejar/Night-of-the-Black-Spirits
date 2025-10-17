@@ -18,5 +18,13 @@ func _on_timer_check_timeout() -> void:
 	else:
 		$AnimationPlayer.speed_scale *= 1.5
 	if total_checks > MAX_TIMER_CHECKS:
-		pass
+		$TimerCheck.stop()
+		$GPUParticles2D.one_shot = false
+		$GPUParticles2D.emitting = true
+		await self.get_tree().create_timer(1).timeout
+		var EnemyScene: PackedScene = preload("res://Entities/Enemy/enemy.tscn")
+		var Enemy: CharacterBody2D = EnemyScene.instantiate()
+		Enemy.global_position = self.global_position
+		self.get_tree().get_root().add_child(Enemy)
+		self.queue_free()
 	total_checks += 1
