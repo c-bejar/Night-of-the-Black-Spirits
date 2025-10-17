@@ -21,10 +21,11 @@ func spawn_tvs() -> void:
 	var total_locs: int = children.size()
 	while total_tvs < MAX_TVS:
 		var rand_val: int = randi() % total_locs
-		if children[rand_val].global_position not in spawns:
-			spawns.append(children[rand_val].global_position)
+		var marker_pos: Vector2 = children[rand_val].global_position
+		if marker_pos not in spawns:
+			spawns.append(marker_pos)
 			var TVInstance: StaticBody2D = TVScene.instantiate()
-			TVInstance.global_position = children[rand_val].global_position
+			TVInstance.global_position = marker_pos
 			$".".add_child(TVInstance)
 			total_tvs += 1
 
