@@ -1,15 +1,14 @@
-[gd_scene load_steps=12 format=3 uid="uid://cum0cm3w0mxwb"]
+[gd_scene load_steps=15 format=3 uid="uid://cum0cm3w0mxwb"]
 
 [ext_resource type="Shader" uid="uid://cm1wo5o0fw1cb" path="res://Entities/TV/tv_static.gdshader" id="1_8eprd"]
 [ext_resource type="Script" uid="uid://dh74drflwky8r" path="res://Entities/TV/tv.gd" id="1_kko31"]
+[ext_resource type="Texture2D" uid="uid://6axbdk1jmh62" path="res://Entities/TV/assets/face.png" id="3_00ynu"]
 [ext_resource type="Texture2D" uid="uid://clhi05bnfvhiq" path="res://Resources/point_light.tres" id="3_8eprd"]
 [ext_resource type="Texture2D" uid="uid://cf1g65crc1ttl" path="res://Entities/TV/assets/tv.png" id="3_qdr0y"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_uovl0"]
 shader = ExtResource("1_8eprd")
 shader_parameter/amount = 40.0
-
-[sub_resource type="QuadMesh" id="QuadMesh_t4nii"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8eprd"]
 size = Vector2(16, 13)
@@ -36,16 +35,57 @@ scale_max = 8.0
 color = Color(0.13028675, 0.13028678, 0.13028675, 1)
 alpha_curve = SubResource("CurveTexture_qdr0y")
 
+[sub_resource type="Animation" id="Animation_qdr0y"]
+resource_name = "start_face"
+length = 2.0
+loop_mode = 1
+step = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Static:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="Animation" id="Animation_00ynu"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Static:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_igsfc"]
+_data = {
+&"RESET": SubResource("Animation_00ynu"),
+&"start_face": SubResource("Animation_qdr0y")
+}
+
 [node name="TV" type="StaticBody2D"]
 collision_layer = 8
 collision_mask = 7
 script = ExtResource("1_kko31")
 
-[node name="Static" type="MeshInstance2D" parent="."]
+[node name="Static" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_uovl0")
-position = Vector2(-1.7499994, -2.3841858e-07)
-scale = Vector2(10.500001, 10)
-mesh = SubResource("QuadMesh_t4nii")
+position = Vector2(-1.5, 0)
+scale = Vector2(0.5625, 0.5)
+texture = ExtResource("3_00ynu")
+hframes = 5
+frame = 4
 
 [node name="TV" type="Sprite2D" parent="."]
 texture_filter = 1
@@ -70,3 +110,14 @@ amount = 80
 lifetime = 0.25
 one_shot = true
 process_material = SubResource("ParticleProcessMaterial_00ynu")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_igsfc")
+}
+
+[node name="TimerCheck" type="Timer" parent="."]
+wait_time = 10.0
+autostart = true
+
+[connection signal="timeout" from="TimerCheck" to="." method="_on_timer_check_timeout"]
