@@ -305,5 +305,10 @@ energy = 0.25
 texture = ExtResource("5_5c2io")
 texture_scale = 0.5
 
+[node name="AttackTimer" type="Timer" parent="."]
+wait_time = 0.175
+one_shot = true
+
 [connection signal="body_entered" from="Rotation Point/TVDetection" to="." method="_on_tv_detection_body_entered"]
 [connection signal="body_exited" from="Rotation Point/TVDetection" to="." method="_on_tv_detection_body_exited"]
+[connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]
