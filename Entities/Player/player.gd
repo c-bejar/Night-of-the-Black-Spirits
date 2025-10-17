@@ -10,6 +10,8 @@ var speed_modifier: float = 1.0
 var last_facing_direction: Vector2 = Vector2.DOWN
 
 func _process(_delta: float) -> void:
+	Globals.player_pos = self.global_position
+	
 	var idle: bool = not self.velocity
 	if not idle:
 		last_facing_direction = self.velocity.normalized()
