@@ -1,8 +1,11 @@
 extends CharacterBody2D
 
+signal axe_attack()
+signal tv_entered(body: Node2D)
+signal tv_exited(body: Node2D)
+
 const SPEED: int = 75
 
-var tv_in_range: bool = false
 var speed_modifier: float = 1.0
 var last_facing_direction: Vector2 = Vector2.DOWN
 
@@ -29,15 +32,20 @@ func set_animation_mode(direction: Vector2) -> void:
 
 
 func attack() -> void:
+	$AttackTimer.start()
 	var tween : Tween = create_tween()
 	tween.tween_property($"Rotation Point/AnimationRotation", "rotation", deg_to_rad(-100), 0.15)
 	tween.tween_property($"Rotation Point/AnimationRotation", "rotation", deg_to_rad(100), 0.05)
 	tween.tween_property($"Rotation Point/AnimationRotation", "rotation", deg_to_rad(0), 0.25)
 
 
-func _on_tv_detection_body_entered(_body: Node2D) -> void:
-	tv_in_range = true
+func _on_tv_detection_body_entered(body: Node2D) -> void:
+	tv_entered.emit(body)
 
 
-func _on_tv_detection_body_exited(_body: Node2D) -> void:
-	tv_in_range = false
+func _on_tv_detection_body_exited(body: Node2D) -> void:
+	tv_exited.emit(body)
+
+
+func _on_attack_timer_timeout() -> void:
+	axe_attack.emit()
