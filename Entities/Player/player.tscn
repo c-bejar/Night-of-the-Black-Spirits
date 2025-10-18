@@ -289,14 +289,14 @@ rotation = -2.6179938
 scale = Vector2(0.02, 0.02)
 texture = ExtResource("4_5c2io")
 
-[node name="TVDetection" type="Area2D" parent="Rotation Point"]
+[node name="AttackRange" type="Area2D" parent="Rotation Point"]
 position = Vector2(0, -1)
 rotation = 3.1415927
 scale = Vector2(1, -1)
 collision_layer = 16
-collision_mask = 8
+collision_mask = 12
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Rotation Point/TVDetection"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Rotation Point/AttackRange"]
 position = Vector2(0, -4)
 polygon = PackedVector2Array(17, -2, 14, -12, 24, -2, 28, 6, 25, 14, 14, 24, 17, 14, 19, 6)
 
@@ -309,6 +309,6 @@ texture_scale = 0.5
 wait_time = 0.175
 one_shot = true
 
-[connection signal="body_entered" from="Rotation Point/TVDetection" to="." method="_on_tv_detection_body_entered"]
-[connection signal="body_exited" from="Rotation Point/TVDetection" to="." method="_on_tv_detection_body_exited"]
+[connection signal="body_entered" from="Rotation Point/AttackRange" to="." method="_on_tv_detection_body_entered"]
+[connection signal="body_exited" from="Rotation Point/AttackRange" to="." method="_on_tv_detection_body_exited"]
 [connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]
