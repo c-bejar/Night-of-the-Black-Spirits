@@ -1,7 +1,8 @@
-[gd_scene load_steps=33 format=4 uid="uid://c3e8f6bfdiawr"]
+[gd_scene load_steps=34 format=4 uid="uid://c3e8f6bfdiawr"]
 
 [ext_resource type="PackedScene" uid="uid://dmjf1fjaukhdm" path="res://Areas/Room Base/room.tscn" id="1_omrnp"]
 [ext_resource type="Script" uid="uid://diy28mrlawudd" path="res://Areas/House/house.gd" id="2_qlil4"]
+[ext_resource type="AudioStream" uid="uid://dqurm7xsc18tw" path="res://Sounds/Ambience.wav" id="3_3rt5c"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2sywn"]
 size = Vector2(64, 16)
@@ -433,12 +434,17 @@ position = Vector2(523, 4)
 [node name="Marker2D16" type="Marker2D" parent="SpawnPoints" index="10"]
 position = Vector2(472, 137)
 
+[node name="Player" parent="." index="3"]
+position = Vector2(218, 166)
+
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="." index="4"]
 color = Color(0.8175213, 0.8175213, 0.81752115, 1)
 blend_mode = 1
 
-[node name="Player" parent="." index="5"]
-position = Vector2(218, 166)
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="5"]
+stream = ExtResource("3_3rt5c")
+volume_db = -5.0
+autoplay = true
 
 [connection signal="axe_attack" from="Player" to="." method="_on_player_axe_attack"]
 [connection signal="tv_entered" from="Player" to="." method="_on_player_tv_entered"]
