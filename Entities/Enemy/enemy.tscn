@@ -1,9 +1,15 @@
-[gd_scene load_steps=8 format=3 uid="uid://bv2grfnv1l8sf"]
+[gd_scene load_steps=10 format=3 uid="uid://bv2grfnv1l8sf"]
 
 [ext_resource type="Script" uid="uid://dxmglatlw8xh7" path="res://Entities/Enemy/enemy.gd" id="1_egd74"]
+[ext_resource type="Shader" uid="uid://38cwvio060ql" path="res://Entities/Enemy/enemy.gdshader" id="2_xugip"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_brg4x"]
 radius = 7.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_l2yo7"]
+shader = ExtResource("2_xugip")
+shader_parameter/color = Color(0.26913396, 0.027340444, 0.06798698, 1)
+shader_parameter/progress = 0.0
 
 [sub_resource type="Gradient" id="Gradient_brg4x"]
 interpolation_mode = 2
@@ -42,7 +48,14 @@ script = ExtResource("1_egd74")
 shape = SubResource("CircleShape2D_brg4x")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+material = SubResource("ShaderMaterial_l2yo7")
 amount = 50
 texture = SubResource("GradientTexture2D_egd74")
 lifetime = 2.0
 process_material = SubResource("ParticleProcessMaterial_6b1qy")
+
+[node name="ShaderTimer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
+[connection signal="timeout" from="ShaderTimer" to="." method="_on_shader_timer_timeout"]
