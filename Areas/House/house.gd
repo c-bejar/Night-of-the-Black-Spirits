@@ -3,44 +3,37 @@ extends Node2D
 const TVScene: PackedScene = preload("res://Entities/TV/tv.tscn")
 const MAX_TVS: int = 6
 
-var total_tvs: int = 0
-var spawns: Array = []
-var tvs_in_range: Array = []
+var bodies_in_range: Array = []
 
 func _ready() -> void:
-	spawn_tvs()
+	for i: int in range(MAX_TVS):
+		spawn_tv()
 
 
-func _process(_delta: float) -> void:
-	if total_tvs < MAX_TVS:
-		spawn_tvs()
-
-
-func spawn_tvs() -> void:
-	var children: Array = $"SpawnPoints".get_children()
-	var total_locs: int = children.size()
-	while total_tvs < MAX_TVS:
-		var rand_val: int = randi() % total_locs
-		var marker_pos: Vector2 = children[rand_val].global_position
-		if marker_pos not in spawns:
-			spawns.append(marker_pos)
-			var TVInstance: StaticBody2D = TVScene.instantiate()
-			TVInstance.global_position = marker_pos
-			$".".add_child(TVInstance)
-			total_tvs += 1
+func spawn_tv() -> void:
+	var markers: Array = $"SpawnPoints".get_children()
+	var rand_val: int = randi() % markers.size()
+	var marker_pos: Vector2 = markers[rand_val].global_position
+	if marker_pos not in Globals.spawns:
+		Globals.spawns.append(marker_pos)
+		var TVInstance: StaticBody2D = TVScene.instantiate()
+		TVInstance.global_position = marker_pos
+		TVInstance.connect("tv_died", spawn_tv)
+		$TVs.add_child(TVInstance)
 
 
 func _on_player_axe_attack() -> void:
-	for tv: StaticBody2D in tvs_in_range:
-		if "tv_destroyed" in tv:
-			spawns.erase(tv.global_position)
-			total_tvs -= 1
-			tv.tv_destroyed()
+	for body: PhysicsBody2D in bodies_in_range:
+		if "tv_destroyed" in body:
+			Globals.spawns.erase(body.global_position)
+			body.tv_destroyed()
+		elif "hit" in body:
+			body.hit()
 
 
 func _on_player_tv_entered(body: Node2D) -> void:
-	tvs_in_range.append(body)
+	bodies_in_range.append(body)
 
 
 func _on_player_tv_exited(body: Node2D) -> void:
-	tvs_in_range.erase(body)
+	bodies_in_range.erase(body)
