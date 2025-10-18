@@ -115,9 +115,3 @@ process_material = SubResource("ParticleProcessMaterial_00ynu")
 libraries = {
 &"": SubResource("AnimationLibrary_igsfc")
 }
-
-[node name="TimerCheck" type="Timer" parent="."]
-wait_time = 6.0
-autostart = true
-
-[connection signal="timeout" from="TimerCheck" to="." method="_on_timer_check_timeout"]
