@@ -12,8 +12,12 @@ func _ready() -> void:
 
 func spawn_tv() -> void:
 	var markers: Array = $"SpawnPoints".get_children()
-	var rand_val: int = randi() % markers.size()
-	var marker_pos: Vector2 = markers[rand_val].global_position
+	var marker_pos: Vector2
+	while true:
+		var rand_val: int = randi() % markers.size()
+		marker_pos = markers[rand_val].global_position
+		if marker_pos not in Globals.spawns:
+			break
 	if marker_pos not in Globals.spawns:
 		Globals.spawns.append(marker_pos)
 		var TVInstance: StaticBody2D = TVScene.instantiate()
