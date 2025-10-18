@@ -433,12 +433,12 @@ position = Vector2(523, 4)
 [node name="Marker2D16" type="Marker2D" parent="SpawnPoints" index="10"]
 position = Vector2(472, 137)
 
-[node name="Player" parent="." index="2"]
-position = Vector2(218, 166)
-
-[node name="DirectionalLight2D" type="DirectionalLight2D" parent="." index="3"]
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="." index="4"]
 color = Color(0.8175213, 0.8175213, 0.81752115, 1)
 blend_mode = 1
+
+[node name="Player" parent="." index="5"]
+position = Vector2(218, 166)
 
 [connection signal="axe_attack" from="Player" to="." method="_on_player_axe_attack"]
 [connection signal="tv_entered" from="Player" to="." method="_on_player_tv_entered"]
