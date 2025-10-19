@@ -22,7 +22,7 @@ func spawn_tv() -> void:
 		Globals.spawns.append(marker_pos)
 		var TVInstance: StaticBody2D = TVScene.instantiate()
 		TVInstance.global_position = marker_pos
-		TVInstance.connect("tv_died", spawn_tv)
+		TVInstance.tv_died.connect(spawn_tv)
 		$TVs.add_child(TVInstance)
 
 
