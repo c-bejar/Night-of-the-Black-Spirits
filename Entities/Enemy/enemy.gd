@@ -28,6 +28,7 @@ func hit() -> void:
 	$ShaderTimer.start()
 	health -= 1
 	if health <= 0:
+		Globals.current_score += 500
 		self.queue_free()
 
 
