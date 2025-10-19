@@ -5,6 +5,10 @@ const SPEED: int = 25
 var health: int = 5
 var currently_attacking: bool = false
 var PlayerBody: CharacterBody2D = null
+var enemy_alpha: float = 0:
+	set(value):
+		enemy_alpha = value
+		update_alpha(enemy_alpha)
 
 func _process(delta: float) -> void:
 	if currently_attacking:
@@ -23,13 +27,21 @@ func _process(delta: float) -> void:
 
 
 func hit() -> void:
-	$HurtSound.play()
-	$GPUParticles2D.material.set_shader_parameter("progress", 1)
-	$ShaderTimer.start()
-	health -= 1
+	if health > 0:
+		$HurtSound.play()
+		$GPUParticles2D.material.set_shader_parameter("progress", 1)
+		$ShaderTimer.start()
+		health -= 1
 	if health <= 0:
 		Globals.current_score += 500
+		var tween : Tween= self.create_tween()
+		tween.tween_property(self, "enemy_alpha", 1, 0.25)
+		await tween.finished
 		self.queue_free()
+
+func update_alpha(value: float) -> void:
+	$GPUParticles2D.material.set_shader_parameter("alpha", 0)
+	$GPUParticles2D.material.set_shader_parameter("progress", value)
 
 
 func _on_shader_timer_timeout() -> void:
