@@ -1,10 +1,11 @@
-[gd_scene load_steps=15 format=3 uid="uid://cum0cm3w0mxwb"]
+[gd_scene load_steps=16 format=3 uid="uid://cum0cm3w0mxwb"]
 
 [ext_resource type="Shader" uid="uid://cm1wo5o0fw1cb" path="res://Entities/TV/tv_static.gdshader" id="1_8eprd"]
 [ext_resource type="Script" uid="uid://dh74drflwky8r" path="res://Entities/TV/tv.gd" id="1_kko31"]
 [ext_resource type="Texture2D" uid="uid://6axbdk1jmh62" path="res://Entities/TV/assets/face.png" id="3_00ynu"]
 [ext_resource type="Texture2D" uid="uid://clhi05bnfvhiq" path="res://Resources/point_light.tres" id="3_8eprd"]
 [ext_resource type="Texture2D" uid="uid://cf1g65crc1ttl" path="res://Entities/TV/assets/tv.png" id="3_qdr0y"]
+[ext_resource type="AudioStream" uid="uid://cbt3jlunn6buq" path="res://Sounds/smash2.wav" id="6_00ynu"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_uovl0"]
 shader = ExtResource("1_8eprd")
@@ -35,6 +36,21 @@ scale_max = 8.0
 color = Color(0.13028675, 0.13028678, 0.13028675, 1)
 alpha_curve = SubResource("CurveTexture_qdr0y")
 
+[sub_resource type="Animation" id="Animation_00ynu"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Static:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+
 [sub_resource type="Animation" id="Animation_qdr0y"]
 resource_name = "start_face"
 length = 2.0
@@ -51,21 +67,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 2, 3]
-}
-
-[sub_resource type="Animation" id="Animation_00ynu"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Static:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [4]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_igsfc"]
@@ -115,3 +116,8 @@ process_material = SubResource("ParticleProcessMaterial_00ynu")
 libraries = {
 &"": SubResource("AnimationLibrary_igsfc")
 }
+
+[node name="SmashSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_00ynu")
+volume_db = 10.0
+pitch_scale = 2.0
