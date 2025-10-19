@@ -30,7 +30,7 @@ func _on_player_axe_attack() -> void:
 	for body: PhysicsBody2D in bodies_in_range:
 		if "tv_destroyed" in body:
 			Globals.spawns.erase(body.global_position)
-			body.tv_destroyed()
+			body.tv_destroyed(true)
 		elif "hit" in body:
 			body.hit()
 
