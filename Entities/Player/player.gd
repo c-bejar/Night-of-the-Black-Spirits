@@ -6,6 +6,8 @@ signal tv_exited(body: Node2D)
 
 const SPEED: int = 75
 
+var health: int = 10
+var can_be_damaged: bool = true
 var speed_modifier: float = 1.0
 var last_facing_direction: Vector2 = Vector2.DOWN
 
@@ -40,6 +42,16 @@ func attack() -> void:
 	tween.tween_property($"Rotation Point/AnimationRotation", "rotation", deg_to_rad(100), 0.05)
 	tween.tween_property($"Rotation Point/AnimationRotation", "rotation", deg_to_rad(0), 0.25)
 
+func hit() -> void:
+	if can_be_damaged:
+		$HurtSound.play()
+		can_be_damaged = false
+		health -= 1
+		$Sprite2D.material.set_shader_parameter("progress", 1)
+		$ShaderTimer.start()
+		$DamageCooldown.start()
+	if health <= 0:
+		pass
 
 func _on_tv_detection_body_entered(body: Node2D) -> void:
 	tv_entered.emit(body)
@@ -51,3 +63,12 @@ func _on_tv_detection_body_exited(body: Node2D) -> void:
 
 func _on_attack_timer_timeout() -> void:
 	axe_attack.emit()
+	$AxeSound.play()
+
+
+func _on_damage_cooldown_timeout() -> void:
+	can_be_damaged = true
+
+
+func _on_shader_timer_timeout() -> void:
+	$Sprite2D.material.set_shader_parameter("progress", 0)
