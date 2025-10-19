@@ -1,0 +1,50 @@
+[gd_scene load_steps=6 format=3 uid="uid://of2qqr8hlr2t"]
+
+[ext_resource type="FontFile" uid="uid://dyqvbju0fm2sm" path="res://Fonts/Workbench-Regular-VariableFont_BLED,SCAN.ttf" id="1_1sxe1"]
+[ext_resource type="AudioStream" uid="uid://dqurm7xsc18tw" path="res://Sounds/Ambience.wav" id="1_qiwnj"]
+[ext_resource type="AudioStream" uid="uid://cadxp4qwcgd5f" path="res://Sounds/menu.wav" id="2_pougl"]
+[ext_resource type="AudioStream" uid="uid://cmh6wk4vkgv4a" path="res://Sounds/end.wav" id="3_3nl8e"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_vat5q"]
+font = ExtResource("1_1sxe1")
+font_size = 100
+
+[node name="UI" type="CanvasLayer"]
+
+[node name="ScoreContainer" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ScoreContainer"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ScoreText" type="Label" parent="ScoreContainer/HBoxContainer"]
+layout_mode = 2
+text = "Score:"
+label_settings = SubResource("LabelSettings_vat5q")
+
+[node name="ScoreBox" type="Label" parent="ScoreContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "500"
+label_settings = SubResource("LabelSettings_vat5q")
+
+[node name="Audio" type="Node" parent="."]
+
+[node name="MainAudio" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource("1_qiwnj")
+autoplay = true
+
+[node name="MenuAudio" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource("2_pougl")
+volume_db = -80.0
+autoplay = true
+
+[node name="EndAudio" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource("3_3nl8e")
+volume_db = -80.0
+autoplay = true
