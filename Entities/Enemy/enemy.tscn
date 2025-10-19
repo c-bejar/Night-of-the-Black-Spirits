@@ -1,14 +1,16 @@
-[gd_scene load_steps=10 format=3 uid="uid://bv2grfnv1l8sf"]
+[gd_scene load_steps=12 format=3 uid="uid://bv2grfnv1l8sf"]
 
 [ext_resource type="Script" uid="uid://dxmglatlw8xh7" path="res://Entities/Enemy/enemy.gd" id="1_egd74"]
 [ext_resource type="Shader" uid="uid://38cwvio060ql" path="res://Entities/Enemy/enemy.gdshader" id="2_xugip"]
+[ext_resource type="AudioStream" uid="uid://ddyiy4h05qnbk" path="res://Sounds/smoke.wav" id="3_l2yo7"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_brg4x"]
 radius = 7.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_l2yo7"]
+resource_local_to_scene = true
 shader = ExtResource("2_xugip")
-shader_parameter/color = Color(0.26913396, 0.027340444, 0.06798698, 1)
+shader_parameter/color = Color(0.5401943, 0.5401943, 0.5401942, 1)
 shader_parameter/progress = 0.0
 
 [sub_resource type="Gradient" id="Gradient_brg4x"]
@@ -40,8 +42,12 @@ initial_velocity_max = 25.0
 gravity = Vector3(0, 0, 0)
 color_ramp = SubResource("GradientTexture1D_l2yo7")
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_xugip"]
+radius = 7.0
+
 [node name="Enemy" type="CharacterBody2D"]
 collision_layer = 4
+collision_mask = 0
 script = ExtResource("1_egd74")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -58,4 +64,19 @@ process_material = SubResource("ParticleProcessMaterial_6b1qy")
 wait_time = 0.1
 one_shot = true
 
+[node name="AttackTimer" type="Timer" parent="."]
+
+[node name="AttackArea" type="Area2D" parent="."]
+collision_layer = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
+shape = SubResource("CircleShape2D_xugip")
+
+[node name="HurtSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_l2yo7")
+volume_db = -10.0
+pitch_scale = 2.0
+
 [connection signal="timeout" from="ShaderTimer" to="." method="_on_shader_timer_timeout"]
+[connection signal="body_entered" from="AttackArea" to="." method="_on_attack_area_body_entered"]
+[connection signal="body_exited" from="AttackArea" to="." method="_on_attack_area_body_exited"]
