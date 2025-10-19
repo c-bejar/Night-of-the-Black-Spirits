@@ -285,6 +285,8 @@ parameters/Move/blend_position = Vector2(0.01000905, 0.024999976)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(5, 5)
+position_smoothing_enabled = true
+position_smoothing_speed = 2.5
 
 [node name="Rotation Point" type="Node2D" parent="."]
 position = Vector2(0, 1)
@@ -308,9 +310,10 @@ collision_mask = 12
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Rotation Point/AttackRange"]
 position = Vector2(0, -4)
-polygon = PackedVector2Array(17, -2, 14, -12, 24, -2, 28, 6, 25, 14, 14, 24, 17, 14, 19, 6)
+polygon = PackedVector2Array(14, -12, 24, -2, 28, 6, 25, 14, 14, 24, 7, 6.000001)
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(-3, 0)
 energy = 0.25
 texture = ExtResource("5_5c2io")
 texture_scale = 0.5
@@ -328,7 +331,7 @@ one_shot = true
 
 [node name="HurtSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_7a1se")
-volume_db = -10.0
+volume_db = -7.0
 
 [node name="AxeSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_01a4e")
