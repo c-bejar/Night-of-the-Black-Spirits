@@ -490,7 +490,7 @@ height = 150.0
 position = Vector2(218, 166)
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="." index="5"]
-color = Color(0.8175213, 0.8175213, 0.81752115, 1)
+color = Color(0.8689852, 0.8689848, 0.8689849, 1)
 blend_mode = 1
 
 [connection signal="axe_attack" from="Player" to="." method="_on_player_axe_attack"]
