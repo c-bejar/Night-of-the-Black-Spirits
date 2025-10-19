@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://y8s0qmkthw2n"]
+[gd_scene load_steps=37 format=3 uid="uid://y8s0qmkthw2n"]
 
 [ext_resource type="Script" uid="uid://ba5lk2jtb8hjh" path="res://Entities/Player/player.gd" id="1_3uyv8"]
 [ext_resource type="Texture2D" uid="uid://bhjdhmitdap4w" path="res://Entities/Player/assets/player.png" id="1_mv1ah"]
@@ -6,6 +6,7 @@
 [ext_resource type="Shader" uid="uid://7hk4efd43mx" path="res://Entities/Player/axe.gdshader" id="3_tekja"]
 [ext_resource type="Texture2D" uid="uid://irbrs87p4ni5" path="res://Entities/Player/assets/axe.png" id="4_5c2io"]
 [ext_resource type="Texture2D" uid="uid://clhi05bnfvhiq" path="res://Resources/point_light.tres" id="5_5c2io"]
+[ext_resource type="Texture2D" uid="uid://c3htlvht17v12" path="res://Entities/Player/assets/light.png" id="6_lub02"]
 [ext_resource type="AudioStream" uid="uid://cpt4r6r58gcaa" path="res://Sounds/weapon_swing6.wav" id="7_01a4e"]
 [ext_resource type="AudioStream" uid="uid://bsxpky2sqgl3" path="res://Sounds/hit.wav" id="7_7a1se"]
 
@@ -14,6 +15,7 @@ resource_local_to_scene = true
 shader = ExtResource("2_4wf4l")
 shader_parameter/color = Color(1, 1, 1, 1)
 shader_parameter/progress = 0.0
+shader_parameter/alpha = 1.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mv1ah"]
 size = Vector2(4, 10)
@@ -311,6 +313,14 @@ collision_mask = 12
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Rotation Point/AttackRange"]
 position = Vector2(0, -4)
 polygon = PackedVector2Array(14, -12, 24, -2, 28, 6, 25, 14, 14, 24, 7, 6.000001)
+
+[node name="PointLight2D" type="PointLight2D" parent="Rotation Point"]
+position = Vector2(-4, 0)
+rotation = -2.3561945
+color = Color(0.7063026, 0.7063026, 0.7063025, 1)
+shadow_enabled = true
+texture = ExtResource("6_lub02")
+texture_scale = 0.5
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 position = Vector2(-3, 0)
