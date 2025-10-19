@@ -19,17 +19,22 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="ScoreContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="ScoreContainer"]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_top = 25
 
-[node name="ScoreText" type="Label" parent="ScoreContainer/HBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="ScoreContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="ScoreText" type="Label" parent="ScoreContainer/MarginContainer/HBoxContainer"]
 layout_mode = 2
 text = "Score:"
 label_settings = SubResource("LabelSettings_vat5q")
 
-[node name="ScoreBox" type="Label" parent="ScoreContainer/HBoxContainer"]
+[node name="ScoreBox" type="Label" parent="ScoreContainer/MarginContainer/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "500"
