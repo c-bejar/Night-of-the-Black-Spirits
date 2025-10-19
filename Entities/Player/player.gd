@@ -37,7 +37,7 @@ func set_animation_mode(direction: Vector2) -> void:
 
 func attack() -> void:
 	$AttackTimer.start()
-	var tween : Tween = create_tween()
+	var tween: Tween = create_tween()
 	tween.tween_property($"Rotation Point/AnimationRotation", "rotation", deg_to_rad(-100), 0.15)
 	tween.tween_property($"Rotation Point/AnimationRotation", "rotation", deg_to_rad(100), 0.05)
 	tween.tween_property($"Rotation Point/AnimationRotation", "rotation", deg_to_rad(0), 0.25)
