@@ -1,10 +1,19 @@
-[gd_scene load_steps=32 format=3 uid="uid://y8s0qmkthw2n"]
+[gd_scene load_steps=36 format=3 uid="uid://y8s0qmkthw2n"]
 
 [ext_resource type="Script" uid="uid://ba5lk2jtb8hjh" path="res://Entities/Player/player.gd" id="1_3uyv8"]
 [ext_resource type="Texture2D" uid="uid://bhjdhmitdap4w" path="res://Entities/Player/assets/player.png" id="1_mv1ah"]
+[ext_resource type="Shader" uid="uid://38cwvio060ql" path="res://Entities/Enemy/enemy.gdshader" id="2_4wf4l"]
 [ext_resource type="Shader" uid="uid://7hk4efd43mx" path="res://Entities/Player/axe.gdshader" id="3_tekja"]
 [ext_resource type="Texture2D" uid="uid://irbrs87p4ni5" path="res://Entities/Player/assets/axe.png" id="4_5c2io"]
 [ext_resource type="Texture2D" uid="uid://clhi05bnfvhiq" path="res://Resources/point_light.tres" id="5_5c2io"]
+[ext_resource type="AudioStream" uid="uid://cpt4r6r58gcaa" path="res://Sounds/weapon_swing6.wav" id="7_01a4e"]
+[ext_resource type="AudioStream" uid="uid://bsxpky2sqgl3" path="res://Sounds/hit.wav" id="7_7a1se"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_01a4e"]
+resource_local_to_scene = true
+shader = ExtResource("2_4wf4l")
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/progress = 0.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mv1ah"]
 size = Vector2(4, 10)
@@ -251,11 +260,12 @@ shader = ExtResource("3_tekja")
 shader_parameter/amount = 20
 
 [node name="Player" type="CharacterBody2D"]
-collision_mask = 6
+collision_mask = 2
 script = ExtResource("1_3uyv8")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
+material = SubResource("ShaderMaterial_01a4e")
 texture = ExtResource("1_mv1ah")
 hframes = 3
 vframes = 8
@@ -309,6 +319,23 @@ texture_scale = 0.5
 wait_time = 0.175
 one_shot = true
 
+[node name="DamageCooldown" type="Timer" parent="."]
+one_shot = true
+
+[node name="ShaderTimer" type="Timer" parent="."]
+wait_time = 0.25
+one_shot = true
+
+[node name="HurtSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_7a1se")
+volume_db = -10.0
+
+[node name="AxeSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_01a4e")
+volume_db = -10.0
+
 [connection signal="body_entered" from="Rotation Point/AttackRange" to="." method="_on_tv_detection_body_entered"]
 [connection signal="body_exited" from="Rotation Point/AttackRange" to="." method="_on_tv_detection_body_exited"]
 [connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]
+[connection signal="timeout" from="DamageCooldown" to="." method="_on_damage_cooldown_timeout"]
+[connection signal="timeout" from="ShaderTimer" to="." method="_on_shader_timer_timeout"]
