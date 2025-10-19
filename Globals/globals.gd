@@ -1,6 +1,7 @@
 extends Node
 
-signal update_score()
+signal update_score(collected: bool)
+signal update_health(damaged: bool)
 
 var current_score: int = 0:
 	set(value):
@@ -8,10 +9,15 @@ var current_score: int = 0:
 			current_score = 999_999_999
 		else:
 			current_score = value
-		update_score.emit()
+		update_score.emit(true)
 var highest_score: int = 0
 var spawns: Array = []
 var player_pos: Vector2 = Vector2.ZERO
+var player_health: int = 10:
+	set(value):
+		player_health = value
+		update_health.emit(true)
+		
 var timer_amount: float = 1.0
 
 func _ready() -> void:
