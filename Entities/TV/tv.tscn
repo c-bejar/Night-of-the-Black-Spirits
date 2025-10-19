@@ -99,6 +99,7 @@ shape = SubResource("RectangleShape2D_8eprd")
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 position = Vector2(-1, 0)
+energy = 0.2
 shadow_enabled = true
 texture = ExtResource("3_8eprd")
 
