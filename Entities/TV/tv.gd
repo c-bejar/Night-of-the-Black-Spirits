@@ -12,6 +12,7 @@ func _ready() -> void:
 		timer.timeout.connect(_on_timer_check_timeout)
 
 func tv_destroyed() -> void:
+	$SmashSound.play()
 	$GPUParticles2D.emitting = true
 	$TV.hide()
 	$PointLight2D.hide()
