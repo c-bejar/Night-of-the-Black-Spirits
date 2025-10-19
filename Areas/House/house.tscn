@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=4 uid="uid://c3e8f6bfdiawr"]
+[gd_scene load_steps=36 format=4 uid="uid://c3e8f6bfdiawr"]
 
 [ext_resource type="PackedScene" uid="uid://dmjf1fjaukhdm" path="res://Areas/Room Base/room.tscn" id="1_omrnp"]
 [ext_resource type="Script" uid="uid://diy28mrlawudd" path="res://Areas/House/house.gd" id="2_qlil4"]
@@ -96,6 +96,14 @@ size = Vector2(9, 48)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qlil4"]
 radius = 7.0
+
+[sub_resource type="Gradient" id="Gradient_3rt5c"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0, 0.662963)
+colors = PackedColorArray(0.15784138, 5.1018596e-06, 0.7053782, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_nu5ku"]
+gradient = SubResource("Gradient_3rt5c")
 
 [node name="House" instance=ExtResource("1_omrnp")]
 script = ExtResource("2_qlil4")
@@ -434,14 +442,59 @@ position = Vector2(523, 4)
 [node name="Marker2D16" type="Marker2D" parent="SpawnPoints" index="10"]
 position = Vector2(472, 137)
 
-[node name="Player" parent="." index="3"]
+[node name="WindowLights" type="Node2D" parent="." index="3"]
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="PointLight2D" type="PointLight2D" parent="WindowLights" index="0"]
+position = Vector2(-33, 81)
+scale = Vector2(0.36718747, 31.999996)
+texture = SubResource("GradientTexture1D_nu5ku")
+height = 150.0
+
+[node name="PointLight2D2" type="PointLight2D" parent="WindowLights" index="1"]
+position = Vector2(253, 154.47519)
+rotation = -1.5707964
+scale = Vector2(0.16816238, 31.999996)
+texture = SubResource("GradientTexture1D_nu5ku")
+height = 150.0
+
+[node name="PointLight2D3" type="PointLight2D" parent="WindowLights" index="2"]
+position = Vector2(177, 151.97546)
+rotation = -1.5707964
+scale = Vector2(0.19550419, 31.999996)
+texture = SubResource("GradientTexture1D_nu5ku")
+height = 150.0
+
+[node name="PointLight2D4" type="PointLight2D" parent="WindowLights" index="3"]
+position = Vector2(351.19775, -88)
+rotation = -3.1415925
+scale = Vector2(0.13126758, 18.59863)
+texture = SubResource("GradientTexture1D_nu5ku")
+height = 150.0
+
+[node name="PointLight2D5" type="PointLight2D" parent="WindowLights" index="4"]
+position = Vector2(510.99997, 57.999996)
+rotation = -3.1415925
+scale = Vector2(0.13126758, 18.59863)
+texture = SubResource("GradientTexture1D_nu5ku")
+height = 150.0
+
+[node name="PointLight2D6" type="PointLight2D" parent="WindowLights" index="5"]
+position = Vector2(510.99997, 18.999998)
+rotation = -3.1415925
+scale = Vector2(0.13126758, 18.59863)
+texture = SubResource("GradientTexture1D_nu5ku")
+height = 150.0
+
+[node name="Player" parent="." index="4"]
 position = Vector2(218, 166)
 
-[node name="DirectionalLight2D" type="DirectionalLight2D" parent="." index="4"]
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="." index="5"]
 color = Color(0.8175213, 0.8175213, 0.81752115, 1)
 blend_mode = 1
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="5"]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="6"]
 stream = ExtResource("3_3rt5c")
 volume_db = -5.0
 autoplay = true
