@@ -6,7 +6,6 @@ signal tv_exited(body: Node2D)
 
 const SPEED: int = 75
 
-var health: int = 10
 var can_be_damaged: bool = true
 var speed_modifier: float = 1.0
 var last_facing_direction: Vector2 = Vector2.DOWN
@@ -46,11 +45,11 @@ func hit() -> void:
 	if can_be_damaged:
 		$HurtSound.play()
 		can_be_damaged = false
-		health -= 1
+		Globals.player_health -= 1
 		$Sprite2D.material.set_shader_parameter("progress", 1)
 		$ShaderTimer.start()
 		$DamageCooldown.start()
-	if health <= 0:
+	if Globals.player_health <= 0:
 		pass
 
 func _on_tv_detection_body_entered(body: Node2D) -> void:
