@@ -46,7 +46,7 @@ color_ramp = SubResource("GradientTexture1D_l2yo7")
 [sub_resource type="CircleShape2D" id="CircleShape2D_xugip"]
 radius = 7.0
 
-[node name="Enemy" type="CharacterBody2D"]
+[node name="Enemy" type="CharacterBody2D" groups=["to_be_removed"]]
 collision_layer = 4
 collision_mask = 0
 script = ExtResource("1_egd74")
