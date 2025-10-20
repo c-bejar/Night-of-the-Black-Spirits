@@ -2,6 +2,7 @@ extends Node
 
 signal update_score(collected: bool)
 signal update_health(damaged: bool)
+signal game_has_ended()
 
 var current_score: int = 0:
 	set(value):
@@ -19,8 +20,12 @@ var player_health: int = 10:
 		update_health.emit(true)
 		
 var timer_amount: float = 1.0
+var game_ended: bool = false
 
 func _ready() -> void:
 	var tween: Tween = self.create_tween()
 	tween.tween_property(self, "timer_amount", 0, 300)
 	tween.set_trans(Tween.TRANS_CIRC)
+
+func end_game() -> void:
+	game_has_ended.emit()
