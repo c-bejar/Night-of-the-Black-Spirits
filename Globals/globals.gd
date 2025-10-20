@@ -19,7 +19,7 @@ var player_health: int = 10:
 		player_health = value
 		update_health.emit(true)
 		
-var timer_amount: float = 1.0
+var timer_amount: float = 8.0
 var game_ended: bool = false
 
 func _ready() -> void:
