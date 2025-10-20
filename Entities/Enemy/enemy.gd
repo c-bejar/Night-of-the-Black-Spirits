@@ -4,6 +4,7 @@ const SPEED: int = 25
 
 var health: int = 5
 var currently_attacking: bool = false
+var can_be_hit: bool = true
 var PlayerBody: CharacterBody2D = null
 var enemy_alpha: float = 0:
 	set(value):
@@ -32,7 +33,8 @@ func hit() -> void:
 		$GPUParticles2D.material.set_shader_parameter("progress", 1)
 		$ShaderTimer.start()
 		health -= 1
-	if health <= 0:
+	if health <= 0 and can_be_hit:
+		can_be_hit = false
 		Globals.current_score += 500
 		var tween : Tween= self.create_tween()
 		tween.tween_property(self, "enemy_alpha", 1, 0.25)
