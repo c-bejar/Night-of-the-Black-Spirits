@@ -9,7 +9,6 @@ func _ready() -> void:
 	for i: int in range(MAX_TVS):
 		spawn_tv()
 
-
 func spawn_tv() -> void:
 	var markers: Array = $"SpawnPoints".get_children()
 	var marker_pos: Vector2
@@ -41,3 +40,9 @@ func _on_player_tv_entered(body: Node2D) -> void:
 
 func _on_player_tv_exited(body: Node2D) -> void:
 	bodies_in_range.erase(body)
+
+
+func _on_player_game_has_ended() -> void:
+	for body: PhysicsBody2D in self.get_tree().get_nodes_in_group("to_be_removed"):
+		body.queue_free()
+	$Player.hide_all()
