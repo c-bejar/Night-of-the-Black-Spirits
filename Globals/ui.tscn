@@ -308,7 +308,7 @@ offset_right = 500.0
 offset_bottom = 56.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 10
+theme_override_constants/separation = 25
 alignment = 1
 
 [node name="GameEndText" type="Label" parent="EndUI/ScoreDisplay/VBoxContainer"]
@@ -334,6 +334,13 @@ label_settings = SubResource("LabelSettings_p1ma8")
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="RestartButton" type="Button" parent="EndUI/ScoreDisplay/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("1_1sxe1")
+theme_override_font_sizes/font_size = 75
+text = " Restart "
+
 [node name="Audio" type="Node" parent="."]
 
 [node name="MainAudio" type="AudioStreamPlayer" parent="Audio"]
@@ -356,3 +363,4 @@ volume_db = -10.0
 [connection signal="pressed" from="StartUI/CenterUI/VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="StartUI/CenterUI/VBoxContainer/ControlsButton" to="." method="_on_controls_button_pressed"]
 [connection signal="pressed" from="StartUI/ControlsPopup/ControlsExitButton" to="." method="_on_controls_exit_button_pressed"]
+[connection signal="pressed" from="EndUI/ScoreDisplay/VBoxContainer/RestartButton" to="." method="_on_restart_button_pressed"]

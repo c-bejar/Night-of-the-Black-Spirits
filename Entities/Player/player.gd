@@ -12,6 +12,9 @@ var speed_modifier: float = 1.0
 var last_facing_direction: Vector2 = Vector2.DOWN
 var can_move: bool = true
 
+func _ready() -> void:
+	GameUI.game_restarted.connect(reset_pos)
+
 func _process(_delta: float) -> void:
 	Globals.player_pos = self.global_position
 	
@@ -30,6 +33,14 @@ func _process(_delta: float) -> void:
 	$"Rotation Point".look_at(self.get_global_mouse_position())
 	if Input.is_action_just_pressed("attack"):
 		attack()
+
+
+func reset_pos() -> void:
+	can_move = true
+	$Sprite2D.show()
+	$"Rotation Point".show()
+	$PointLight2D.show()
+	self.position = Vector2(218, 166)
 
 
 func set_animation_mode(direction: Vector2) -> void:

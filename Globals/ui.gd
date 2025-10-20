@@ -1,5 +1,7 @@
 extends CanvasLayer
 
+signal game_restarted()
+
 func _ready() -> void:
 	Globals.update_score.connect(update_score_text)
 	Globals.update_health.connect(update_health_bar)
@@ -13,7 +15,7 @@ func start_game() -> void:
 
 
 func update_score_text(collected: bool = false) -> void:
-	if collected:
+	if collected and $GameUI.visible:
 		$Audio/ScoreUp.stop()
 		$Audio/ScoreUp.play()
 		var tween: Tween = self.create_tween()
@@ -47,3 +49,14 @@ func _on_controls_button_pressed() -> void:
 
 func _on_controls_exit_button_pressed() -> void:
 	$StartUI/ControlsPopup.hide()
+
+
+func _on_restart_button_pressed() -> void:
+	$Audio/EndAudio.volume_db = -80
+	Globals.highest_score = Globals.current_score
+	Globals.current_score = 0
+	Globals.player_health = 10
+	$EndUI.hide()
+	$GameUI.show()
+	Globals.game_ended = false
+	game_restarted.emit()

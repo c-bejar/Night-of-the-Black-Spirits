@@ -6,8 +6,16 @@ const MAX_TVS: int = 6
 var bodies_in_range: Array = []
 
 func _ready() -> void:
+	GameUI.game_restarted.connect(spawn_initial_tvs)
+	spawn_initial_tvs()
+
+
+func spawn_initial_tvs() -> void:
+	print("highest score: ", Globals.highest_score)
+	Globals.spawns.clear()
 	for i: int in range(MAX_TVS):
 		spawn_tv()
+
 
 func spawn_tv() -> void:
 	var markers: Array = $"SpawnPoints".get_children()
