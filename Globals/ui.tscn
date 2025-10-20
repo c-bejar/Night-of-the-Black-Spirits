@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://of2qqr8hlr2t"]
+[gd_scene load_steps=25 format=3 uid="uid://of2qqr8hlr2t"]
 
 [ext_resource type="FontFile" uid="uid://dyqvbju0fm2sm" path="res://Fonts/Workbench-Regular-VariableFont_BLED,SCAN.ttf" id="1_1sxe1"]
 [ext_resource type="AudioStream" uid="uid://dqurm7xsc18tw" path="res://Sounds/Ambience.wav" id="1_qiwnj"]
@@ -46,6 +46,16 @@ font_size = 111
 [sub_resource type="LabelSettings" id="LabelSettings_p1ma8"]
 font = ExtResource("1_1sxe1")
 font_size = 181
+
+[sub_resource type="LabelSettings" id="LabelSettings_imu5j"]
+font = ExtResource("1_1sxe1")
+font_size = 50
+
+[sub_resource type="LabelSettings" id="LabelSettings_aedsb"]
+font = ExtResource("1_1sxe1")
+font_size = 50
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_87g8q"]
 
 [node name="UI" type="CanvasLayer"]
 script = ExtResource("1_vat5q")
@@ -333,6 +343,26 @@ text = "999999999"
 label_settings = SubResource("LabelSettings_p1ma8")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="EndUI/ScoreDisplay/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="HighScoreText" type="Label" parent="EndUI/ScoreDisplay/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "High Score: "
+label_settings = SubResource("LabelSettings_imu5j")
+
+[node name="HighScoreBox" type="Label" parent="EndUI/ScoreDisplay/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "000000000"
+label_settings = SubResource("LabelSettings_aedsb")
+
+[node name="HSeparator" type="HSeparator" parent="EndUI/ScoreDisplay/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 25
+theme_override_styles/separator = SubResource("StyleBoxEmpty_87g8q")
 
 [node name="RestartButton" type="Button" parent="EndUI/ScoreDisplay/VBoxContainer"]
 layout_mode = 2
