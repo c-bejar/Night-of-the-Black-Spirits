@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="GameDev.tv Halloween Jam 2025"
-run/main_scene="uid://c3e8f6bfdiawr"
+run/main_scene="uid://deioxlbggovqa"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 config/icon="res://icon.svg"
 
@@ -37,6 +37,10 @@ mouse_cursor/custom_image_hotspot=Vector2(8, 8)
 
 version_control/plugin_name="GitPlugin"
 version_control/autoload_on_startup=true
+
+[global_group]
+
+to_be_removed="removed at the end of the game"
 
 [input]
 
