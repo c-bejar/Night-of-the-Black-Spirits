@@ -3,12 +3,14 @@ extends CharacterBody2D
 signal axe_attack()
 signal tv_entered(body: Node2D)
 signal tv_exited(body: Node2D)
+signal game_has_ended()
 
 const SPEED: int = 75
 
 var can_be_damaged: bool = true
 var speed_modifier: float = 1.0
 var last_facing_direction: Vector2 = Vector2.DOWN
+var can_move: bool = true
 
 func _process(_delta: float) -> void:
 	Globals.player_pos = self.global_position
@@ -22,7 +24,8 @@ func _process(_delta: float) -> void:
 	var input_vector: Vector2 = Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	var direction_vector: Vector2 = input_vector.normalized()
 	self.velocity = direction_vector * SPEED * speed_modifier
-	self.move_and_slide()
+	if can_move:
+		self.move_and_slide()
 	
 	$"Rotation Point".look_at(self.get_global_mouse_position())
 	if Input.is_action_just_pressed("attack"):
@@ -35,11 +38,14 @@ func set_animation_mode(direction: Vector2) -> void:
 
 
 func attack() -> void:
+	if not can_move:
+		return
 	$AttackTimer.start()
 	var tween: Tween = create_tween()
 	tween.tween_property($"Rotation Point/AnimationRotation", "rotation", deg_to_rad(-100), 0.15)
 	tween.tween_property($"Rotation Point/AnimationRotation", "rotation", deg_to_rad(100), 0.05)
 	tween.tween_property($"Rotation Point/AnimationRotation", "rotation", deg_to_rad(0), 0.25)
+
 
 func hit() -> void:
 	if can_be_damaged:
@@ -50,7 +56,16 @@ func hit() -> void:
 		$ShaderTimer.start()
 		$DamageCooldown.start()
 	if Globals.player_health <= 0:
-		pass
+		Globals.end_game()
+		game_has_ended.emit()
+
+
+func hide_all() -> void:
+	can_move = false
+	$Sprite2D.hide()
+	$"Rotation Point".hide()
+	$PointLight2D.hide()
+
 
 func _on_tv_detection_body_entered(body: Node2D) -> void:
 	tv_entered.emit(body)
