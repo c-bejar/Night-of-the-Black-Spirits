@@ -1,11 +1,25 @@
-[gd_scene load_steps=10 format=3 uid="uid://of2qqr8hlr2t"]
+[gd_scene load_steps=21 format=3 uid="uid://of2qqr8hlr2t"]
 
 [ext_resource type="FontFile" uid="uid://dyqvbju0fm2sm" path="res://Fonts/Workbench-Regular-VariableFont_BLED,SCAN.ttf" id="1_1sxe1"]
 [ext_resource type="AudioStream" uid="uid://dqurm7xsc18tw" path="res://Sounds/Ambience.wav" id="1_qiwnj"]
 [ext_resource type="Script" uid="uid://c77a6fjygpaj5" path="res://Globals/ui.gd" id="1_vat5q"]
 [ext_resource type="AudioStream" uid="uid://cadxp4qwcgd5f" path="res://Sounds/menu.wav" id="2_pougl"]
+[ext_resource type="Texture2D" uid="uid://bjcockxbvaixq" path="res://Resources/title.png" id="2_yt8tb"]
 [ext_resource type="AudioStream" uid="uid://cmh6wk4vkgv4a" path="res://Sounds/end.wav" id="3_3nl8e"]
+[ext_resource type="Texture2D" uid="uid://cbie6jjiypb17" path="res://Resources/box.png" id="4_p1ma8"]
+[ext_resource type="Texture2D" uid="uid://nn4ns8w0p6jd" path="res://Resources/x.png" id="5_oxda2"]
+[ext_resource type="Texture2D" uid="uid://hq4vbmdfk0fv" path="res://Resources/x2.png" id="5_vbcvq"]
 [ext_resource type="AudioStream" uid="uid://1u226ayajtxp" path="res://Sounds/score.wav" id="6_3kf0s"]
+[ext_resource type="Texture2D" uid="uid://cabum5dbh25by" path="res://Resources/wasd.png" id="6_j5fae"]
+[ext_resource type="Texture2D" uid="uid://dr8b6mq8ihd7t" path="res://Resources/mouse_left.png" id="8_7ts80"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_oxda2"]
+font = ExtResource("1_1sxe1")
+font_size = 131
+
+[sub_resource type="LabelSettings" id="LabelSettings_5ja5s"]
+font = ExtResource("1_1sxe1")
+font_size = 71
 
 [sub_resource type="LabelSettings" id="LabelSettings_vat5q"]
 font = ExtResource("1_1sxe1")
@@ -17,10 +31,172 @@ bg_color = Color(0.21374327, 0.21374327, 0.21374324, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yt8tb"]
 bg_color = Color(0.19607843, 0.54901963, 0.19607843, 1)
 
+[sub_resource type="LabelSettings" id="LabelSettings_3kf0s"]
+font = ExtResource("1_1sxe1")
+font_size = 111
+
+[sub_resource type="LabelSettings" id="LabelSettings_yt8tb"]
+font = ExtResource("1_1sxe1")
+font_size = 111
+
+[sub_resource type="LabelSettings" id="LabelSettings_p1ma8"]
+font = ExtResource("1_1sxe1")
+font_size = 181
+
 [node name="UI" type="CanvasLayer"]
 script = ExtResource("1_vat5q")
 
+[node name="StartUI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="StartUI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_yt8tb")
+
+[node name="CenterUI" type="Control" parent="StartUI"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="StartUI/CenterUI"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -557.0
+offset_top = -66.0
+offset_right = 557.0
+offset_bottom = 66.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 50
+
+[node name="Label" type="Label" parent="StartUI/CenterUI/VBoxContainer"]
+layout_mode = 2
+text = "Night of
+the Black Spirits
+"
+label_settings = SubResource("LabelSettings_oxda2")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="StartButton" type="Button" parent="StartUI/CenterUI/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("1_1sxe1")
+theme_override_font_sizes/font_size = 85
+text = " Start Game "
+
+[node name="ControlsButton" type="Button" parent="StartUI/CenterUI/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("1_1sxe1")
+theme_override_font_sizes/font_size = 85
+text = " Controls "
+
+[node name="ControlsPopup" type="Control" parent="StartUI"]
+visible = false
+layout_mode = 1
+anchor_left = 0.2
+anchor_top = 0.15
+anchor_right = 0.8
+anchor_bottom = 0.85
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="StartUI/ControlsPopup"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2.0
+offset_right = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_p1ma8")
+
+[node name="ControlsExitButton" type="TextureButton" parent="StartUI/ControlsPopup"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -68.0
+offset_bottom = 68.0
+grow_horizontal = 0
+texture_normal = ExtResource("5_vbcvq")
+texture_hover = ExtResource("5_oxda2")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="StartUI/ControlsPopup"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -288.0
+offset_top = -178.0
+offset_right = 288.0
+offset_bottom = 178.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 100
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="StartUI/ControlsPopup/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 100
+
+[node name="WASD" type="TextureRect" parent="StartUI/ControlsPopup/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("6_j5fae")
+
+[node name="Label" type="Label" parent="StartUI/ControlsPopup/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Movement"
+label_settings = SubResource("LabelSettings_5ja5s")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="StartUI/ControlsPopup/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 100
+alignment = 1
+
+[node name="MouseLeft" type="TextureRect" parent="StartUI/ControlsPopup/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+texture = ExtResource("8_7ts80")
+
+[node name="Label" type="Label" parent="StartUI/ControlsPopup/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "Attack"
+label_settings = SubResource("LabelSettings_5ja5s")
+
 [node name="GameUI" type="Control" parent="."]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -43,6 +219,7 @@ theme_override_constants/margin_top = 25
 unique_name_in_owner = true
 modulate = Color(0, 0.78431374, 0, 1)
 layout_mode = 2
+theme_override_constants/separation = 25
 
 [node name="ScoreText" type="Label" parent="GameUI/ScoreContainer/MarginContainer/HBoxContainer"]
 layout_mode = 2
@@ -84,6 +261,68 @@ max_value = 10.0
 value = 7.0
 show_percentage = false
 
+[node name="EndUI" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ScoreDisplay" type="Control" parent="EndUI"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="EndUI/ScoreDisplay"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -500.0
+offset_top = -56.0
+offset_right = 500.0
+offset_bottom = 56.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="GameEndText" type="Label" parent="EndUI/ScoreDisplay/VBoxContainer"]
+layout_mode = 2
+text = "The Game has Ended
+"
+label_settings = SubResource("LabelSettings_3kf0s")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="FinalScoreText" type="Label" parent="EndUI/ScoreDisplay/VBoxContainer"]
+layout_mode = 2
+text = "Final Score:"
+label_settings = SubResource("LabelSettings_yt8tb")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="FinalScoreBox" type="Label" parent="EndUI/ScoreDisplay/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "999999999"
+label_settings = SubResource("LabelSettings_p1ma8")
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="Audio" type="Node" parent="."]
 
 [node name="MainAudio" type="AudioStreamPlayer" parent="Audio"]
@@ -92,7 +331,6 @@ autoplay = true
 
 [node name="MenuAudio" type="AudioStreamPlayer" parent="Audio"]
 stream = ExtResource("2_pougl")
-volume_db = -80.0
 autoplay = true
 
 [node name="EndAudio" type="AudioStreamPlayer" parent="Audio"]
@@ -103,3 +341,7 @@ autoplay = true
 [node name="ScoreUp" type="AudioStreamPlayer" parent="Audio"]
 stream = ExtResource("6_3kf0s")
 volume_db = -10.0
+
+[connection signal="pressed" from="StartUI/CenterUI/VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="StartUI/CenterUI/VBoxContainer/ControlsButton" to="." method="_on_controls_button_pressed"]
+[connection signal="pressed" from="StartUI/ControlsPopup/ControlsExitButton" to="." method="_on_controls_exit_button_pressed"]
