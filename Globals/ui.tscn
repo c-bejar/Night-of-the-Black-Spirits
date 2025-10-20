@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://of2qqr8hlr2t"]
+[gd_scene load_steps=22 format=3 uid="uid://of2qqr8hlr2t"]
 
 [ext_resource type="FontFile" uid="uid://dyqvbju0fm2sm" path="res://Fonts/Workbench-Regular-VariableFont_BLED,SCAN.ttf" id="1_1sxe1"]
 [ext_resource type="AudioStream" uid="uid://dqurm7xsc18tw" path="res://Sounds/Ambience.wav" id="1_qiwnj"]
@@ -20,6 +20,10 @@ font_size = 131
 [sub_resource type="LabelSettings" id="LabelSettings_5ja5s"]
 font = ExtResource("1_1sxe1")
 font_size = 71
+
+[sub_resource type="LabelSettings" id="LabelSettings_7ts80"]
+font = ExtResource("1_1sxe1")
+font_size = 35
 
 [sub_resource type="LabelSettings" id="LabelSettings_vat5q"]
 font = ExtResource("1_1sxe1")
@@ -194,6 +198,13 @@ texture = ExtResource("8_7ts80")
 layout_mode = 2
 text = "Attack"
 label_settings = SubResource("LabelSettings_5ja5s")
+
+[node name="Label" type="Label" parent="StartUI/ControlsPopup/VBoxContainer"]
+layout_mode = 2
+text = "Attack TVs and Apparitions"
+label_settings = SubResource("LabelSettings_7ts80")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="GameUI" type="Control" parent="."]
 visible = false
