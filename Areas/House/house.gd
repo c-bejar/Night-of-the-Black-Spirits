@@ -11,7 +11,6 @@ func _ready() -> void:
 
 
 func spawn_initial_tvs() -> void:
-	print("highest score: ", Globals.highest_score)
 	Globals.spawns.clear()
 	for i: int in range(MAX_TVS):
 		spawn_tv()
