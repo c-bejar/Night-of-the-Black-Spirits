@@ -17,7 +17,7 @@ func spawn_initial_tvs() -> void:
 		spawn_tv()
 
 
-func spawn_tv() -> void:
+func spawn_tv(original_spawn: Vector2 = Vector2.INF) -> void:
 	var markers: Array = $"SpawnPoints".get_children()
 	var marker_pos: Vector2
 	while true:
@@ -31,12 +31,13 @@ func spawn_tv() -> void:
 		TVInstance.global_position = marker_pos
 		TVInstance.tv_died.connect(spawn_tv)
 		$TVs.add_child(TVInstance)
+	if original_spawn != Vector2.INF:
+		Globals.spawns.erase(original_spawn)
 
 
 func _on_player_axe_attack() -> void:
 	for body: PhysicsBody2D in bodies_in_range:
 		if "tv_destroyed" in body:
-			Globals.spawns.erase(body.global_position)
 			body.tv_destroyed(true)
 		elif "hit" in body:
 			body.hit()

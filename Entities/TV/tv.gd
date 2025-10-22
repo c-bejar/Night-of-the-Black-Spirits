@@ -22,7 +22,7 @@ func tv_destroyed(destroyed_by_player: bool = false) -> void:
 	$CollisionShape2D.set_deferred("disabled", true)
 	$PointLight2D.hide()
 	await $GPUParticles2D.finished
-	tv_died.emit()
+	tv_died.emit(self.global_position)
 	self.queue_free()
 
 
@@ -41,8 +41,6 @@ func _on_timer_check_timeout() -> void:
 			var Enemy: CharacterBody2D = EnemyScene.instantiate()
 			Enemy.global_position = self.global_position
 			self.get_tree().get_root().add_child(Enemy)
-		
-		tv_died.emit()
-		Globals.spawns.erase(self.global_position)
+		tv_died.emit(self.global_position)
 		self.queue_free()
 	total_checks += 1
