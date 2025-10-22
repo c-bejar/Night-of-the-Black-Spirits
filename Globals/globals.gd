@@ -5,6 +5,8 @@ signal update_health(damaged: bool)
 signal game_has_ended()
 signal new_high_score()
 
+const SAVEFILE: String = "user://savefile.save"
+
 var current_score: int = 0:
 	set(value):
 		if value > 999_999_999:
@@ -14,9 +16,14 @@ var current_score: int = 0:
 		update_score.emit(true)
 var highest_score: int = 0:
 	set(value):
+		var read: FileAccess = FileAccess.open(SAVEFILE, FileAccess.READ)
+		if FileAccess.file_exists(SAVEFILE):
+			highest_score = read.get_32()
 		if value > highest_score:
 			highest_score = value
 			new_high_score.emit()
+			var file: FileAccess = FileAccess.open(SAVEFILE, FileAccess.WRITE_READ)
+			file.store_32(value)
 var spawns: Array = []
 var player_pos: Vector2 = Vector2.ZERO
 var player_health: int = 10:
