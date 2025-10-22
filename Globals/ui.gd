@@ -36,11 +36,11 @@ func update_health_bar(_damaged: bool = false) -> void:
 func end_game_process() -> void:
 	$GameUI.hide()
 	$EndUI.show()
+	Globals.highest_score = Globals.current_score
 	if new_high_score:
 		HighScoreDisplay.modulate = Color(1.0, 1.0, 0.369, 1.0)
 	else:
 		HighScoreDisplay.modulate = Color(1.0, 1.0, 1.0, 1.0)
-	Globals.highest_score = Globals.current_score
 	%FinalScoreBox.text = "%09d" % Globals.current_score
 	%HighScoreBox.text = "%09d" % Globals.highest_score
 	$Audio/EndAudio.volume_db = 0
