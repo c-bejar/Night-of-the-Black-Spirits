@@ -51,8 +51,9 @@ func _on_shader_timer_timeout() -> void:
 
 
 func _on_attack_area_body_entered(body: Node2D) -> void:
-	currently_attacking = true
-	PlayerBody = body
+	if health > 0:
+		currently_attacking = true
+		PlayerBody = body
 
 
 func _on_attack_area_body_exited(_body: Node2D) -> void:
